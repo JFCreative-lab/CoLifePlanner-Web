@@ -1,0 +1,22 @@
+{
+  "name": "Our Love Planner",
+  "short_name": "Our Love",
+  "description": "A romantic shared life planner for appointments, medication, birthdays, routines, and memories.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff3f5",
+  "theme_color": "#f4729b",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

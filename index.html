@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4729b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Our Love">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Our Love Planner</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-label="Relationship memory">
+        <img src="assets/couple-photo.png" alt="Couple mirror selfie memory" class="hero-photo">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <div class="date-pill">10-02-2026</div>
+          <h1>Our Love</h1>
+          <p><span id="daysTogether">0</span> days of us, one shared rhythm.</p>
+        </div>
+      </section>
+
+      <section class="quick-stats" aria-label="Today summary">
+        <article>
+          <span id="todayCount">0</span>
+          <small>Today</small>
+        </article>
+        <article>
+          <span id="doneCount">0</span>
+          <small>Done</small>
+        </article>
+        <article>
+          <span id="togetherCount">0</span>
+          <small>Together</small>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Planner views">
+        <button class="tab active" data-view="today">Love</button>
+        <button class="tab" data-view="calendar">Calendar</button>
+        <button class="tab" data-view="routines">Care</button>
+        <button class="tab" data-view="home">Us</button>
+      </nav>
+
+      <section id="todayView" class="view active">
+        <div class="section-title">
+          <h2>Today</h2>
+          <button class="icon-button" id="addToday" aria-label="Add plan">+</button>
+        </div>
+        <div id="todayList" class="plan-list"></div>
+      </section>
+
+      <section id="calendarView" class="view">
+        <div class="section-title">
+          <h2>Calendar</h2>
+          <button class="icon-button" id="addCalendar" aria-label="Add plan">+</button>
+        </div>
+        <input id="calendarDate" class="date-input" type="date">
+        <div id="calendarList" class="plan-list"></div>
+      </section>
+
+      <section id="routinesView" class="view">
+        <div class="section-title">
+          <h2>Care Routines</h2>
+          <button class="icon-button" id="addRoutine" aria-label="Add routine">+</button>
+        </div>
+        <div id="routineList" class="plan-list"></div>
+      </section>
+
+      <section id="homeView" class="view">
+        <div class="section-title">
+          <h2>Us</h2>
+        </div>
+        <div class="person-grid">
+          <article class="person-card">
+            <div class="avatar blue">J</div>
+            <div>
+              <strong>Jeff</strong>
+              <span id="jeffCount">0 plans</span>
+            </div>
+          </article>
+          <article class="person-card">
+            <div class="avatar pink">W</div>
+            <div>
+              <strong>My Wife</strong>
+              <span id="wifeCount">0 plans</span>
+            </div>
+          </article>
+        </div>
+        <div class="love-note">
+          <strong>Started on 10-02-2026</strong>
+          <p>Appointments, medication, birthdays, chores, reminders, and little promises in one place.</p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="planDialog">
+      <form method="dialog" id="planForm" class="plan-form">
+        <div class="dialog-header">
+          <h2>New Plan</h2>
+          <button value="cancel" aria-label="Close">×</button>
+        </div>
+
+        <label>
+          Title
+          <input id="titleInput" required maxlength="80" placeholder="Medication, birthday, appointment...">
+        </label>
+
+        <label>
+          Type
+          <select id="typeInput">
+            <option value="appointment">Appointment</option>
+            <option value="medication">Medication</option>
+            <option value="birthday">Birthday</option>
+            <option value="chore">Chore</option>
+            <option value="meal">Meal</option>
+            <option value="reminder">Reminder</option>
+          </select>
+        </label>
+
+        <label>
+          Date
+          <input id="dateInput" type="date" required>
+        </label>
+
+        <label>
+          Time
+          <input id="timeInput" type="time" required>
+        </label>
+
+        <fieldset>
+          <legend>For who?</legend>
+          <label class="check-row"><input type="checkbox" id="forJeff" checked> Jeff</label>
+          <label class="check-row"><input type="checkbox" id="forWife" checked> My Wife</label>
+        </fieldset>
+
+        <label class="check-row">
+          <input id="repeatInput" type="checkbox">
+          Repeat daily
+        </label>
+
+        <label>
+          Notes
+          <textarea id="notesInput" rows="3" placeholder="Anything sweet or useful to remember"></textarea>
+        </label>
+
+        <button class="save-button" value="default">Save Plan</button>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
